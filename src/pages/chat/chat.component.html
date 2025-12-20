@@ -1,11 +1,24 @@
 <h2>WSCHAT</h2>
 
-<div id="messages">
+<div class="messages" #messagesContainer>
+    <div class="no-messages" *ngIf="messagesArray.length === 0">
+        <p class="welcome">Seja bem-vindo ao chat, envie a primeira mensagem para iniciar a conversa.</p>
+    </div>
 
+    <div *ngFor="let m of messagesArray; let i = index" class="message" [ngClass]="{own: m.isSender, other: !m.isSender}">
+        <div class="bubble">
+            <div class="content">{{ m.content }}</div>
+            <div class="timestamp">{{ m.timestamp }}</div>
+        </div>
+    </div>
 </div>
 
 <div id="input-area">
     <input id="text" type="text" placeholder="Digite sua mensagem..." [(ngModel)]="contentMessage"/>
-    <button (click)="sendMessage(TypeEnum.SEND_TO_USER)">Enviar</button>
-    <button (click)="sendMessage(TypeEnum.SEND_TO_ALL)">Enviar para todos</button>
+    <button class="btn-send" (click)="sendMessage(TypeEnum.SEND_TO_USER)">
+        <span class="material-icons">send</span>
+    </button>
+    <button class="btn-sendAll" (click)="sendMessage(TypeEnum.SEND_TO_ALL)">
+        <span class="material-icons">volume_up</span>
+    </button>
 </div>
