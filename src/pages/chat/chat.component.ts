@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MessageModel } from '../../models/message-model';
 import { WebsocketService } from '../../services/websocket-service';
 import { TypeEnum } from '../../models/enums/type-enum';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'chat-page',
@@ -13,19 +13,23 @@ import { CommonModule } from '@angular/common';
 })
 export class ChatComponent implements OnInit, OnDestroy{
   protected contentMessage: string = '';
+  protected userId: string = '';
   protected TypeEnum = TypeEnum;
   protected messagesArray: Array<{content: string, timestamp: Date, isSender: boolean}> = [];
 
-  constructor(
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private webSocketService: WebsocketService
   ) {}
 
   ngOnInit(): void {
-    this.messageListener();
+    if (isPlatformBrowser(this.platformId)) {
+      this.webSocketService.connect(this.userId);
+      this.messageListener();
+    }
   }
   
   public sendMessage(type : TypeEnum): void {
-    const model = new MessageModel(type, this.contentMessage);
+    const model = new MessageModel(type, this.userId, this.contentMessage);
     this.webSocketService.sendMessage(model);
 
     this.messagesArray.push({content: this.contentMessage, timestamp: new Date(), isSender: true});

@@ -10,16 +10,10 @@ import { EMPTY } from 'rxjs';
 export class WebsocketService {
   private socket$: WebSocketSubject<any> | null = null;
 
-  // So inicializa se estiver no browser (evita erro de web socket not defined)
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.socket$ = webSocket({
-        url: 'ws://localhost:8080/ws',
-        deserializer: ({ data }) => data
-      });
-
-      console.log('Websocket inicializado.');
-    }
+  connect(userId: string) {
+    this.socket$ = webSocket({
+      url: `ws://localhost:8080/chat?userId=${userId}`
+    });
   }
 
   sendMessage(body: MessageModel) {
