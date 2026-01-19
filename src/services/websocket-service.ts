@@ -10,11 +10,10 @@ import { environment } from '../enviroments/enviroment';
 export class WebsocketService {
   private socket$: WebSocketSubject<any> | null = null;
 
-  connect(userId: string) {
+  connect(token: string) {
     this.socket$ = webSocket({
-      url: `${environment.wsUrl}?userId=${userId}`,
-      // evita erro quando o servidor envia texto simples em vez de JSON
-      deserializer: msgEvent => {
+      url: `${environment.wsUrl}?token=${token}`,
+      deserializer: msgEvent => {// evita erro quando o servidor envia texto simples em vez de JSON
         const data = (msgEvent as MessageEvent).data;
         try {
           return JSON.parse(data);

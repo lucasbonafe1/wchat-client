@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from "../pages/login/login.component";
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'wscocket-chat';
-}
+export class AppComponent {}

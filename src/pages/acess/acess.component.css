@@ -1,0 +1,37 @@
+.login-page{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #0f0f0f 0%, #4b4b4b 100%);
+	padding: 2rem;
+}
+
+.component-title{
+	color: white;
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.question-text{
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 1rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+
+.span-link{
+	color: #4a9eff;
+	font-weight: 600;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	text-decoration: underline;
+}
+
+.span-link:hover{
+	color: #6bb4ff;
+}
+

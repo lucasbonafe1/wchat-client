@@ -1,0 +1,17 @@
+<form class="register-card" (ngSubmit)="OnRegister(usernameInput.value, emailInput.value, confirmEmailInput.value, passwordInput.value)">
+    <p ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+    <label class="card-title" for="username">Nome de Usuário</label>
+    <input class="input-label" #usernameInput type="text" maxlength="12" placeholder="Nome de usuário" autocomplete="off" required>
+
+    <label class="card-title" for="email">Email</label>
+    <input class="input-label" #emailInput type="text" maxlength="30" placeholder="Email de acesso" autocomplete="off" required>
+
+    <label class="card-title" for="confirm-email">Confirmar Email</label>
+    <input class="input-label" #confirmEmailInput type="text" maxlength="30" placeholder="Confirmar email de acesso" autocomplete="off" required>
+
+    <label class="card-title" for="password">Senha</label>
+    <input class="input-label" #passwordInput type="text" placeholder="Senha de acesso" autocomplete="off" required>
+
+    <button class="btn-submit" type="submit" aria-label="Registrar">Registrar-se</button>
+</form>

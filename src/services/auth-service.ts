@@ -8,16 +8,16 @@ import { LoginModel } from "../models/login-model";
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
-    private url = environment.apiUrl + '/users';
+export class AuthService {
+    private url = environment.apiUrl + '/auth';
 
     constructor(private http: HttpClient){}
 
-    getUsers(): Observable<UserModel[]> {
-        return this.http.get<UserModel[]>(this.url);
+    login(loginModel: LoginModel): Observable<any> {
+        return this.http.post<any>(`${this.url}/login`, loginModel);
     }
 
-    getUserByName(username: string): Observable<UserModel> {
-        return this.http.get<UserModel>(`${this.url}/${username}`);
+    register(loginModel: LoginModel): Observable<UserModel> {
+        return this.http.post<UserModel>(`${this.url}/register`, loginModel);
     }
 }

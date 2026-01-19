@@ -13,16 +13,14 @@ import { ChatComponent } from '../chat/chat.component';
 })
 export class HomeComponent{
   public registeredUsers: Array<UserModel> = [];
-  public username: string = localStorage.getItem('usernameLogged') || '';
+  public emailLogged: string = localStorage.getItem('userEmail') || '';
   public userService : UserService;
   public selectedUserId : string = '';
 
   constructor(userService: UserService) {
     this.userService = userService;
-    const userIdLogged: string = localStorage.getItem('userIdLogged') || '';
-
     this.userService.getUsers().subscribe(users => {
-      this.registeredUsers = users.filter(user => user.key !== userIdLogged);;
+      this.registeredUsers = users.filter(user => user.email !== this.emailLogged);
     });
   }
 }

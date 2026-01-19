@@ -1,5 +1,4 @@
-export class UserModel {
-    public id?: number;
+export class RegisterModel {
     public username: string;
     public normalizedUsername: string;
     public email: string;
