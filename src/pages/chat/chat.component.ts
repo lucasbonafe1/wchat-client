@@ -23,8 +23,8 @@ export class ChatComponent implements OnInit{
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      var userIdLogged = localStorage.getItem('userIdLogged') || '';
-      this.webSocketService.connect(userIdLogged);
+      var token = localStorage.getItem('bearer-token') || '';
+      this.webSocketService.connect(token);
       this.messageListener();
     }
   }

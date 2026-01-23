@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginModel } from '../../models/login-model';
 import { AuthService } from '../../services/auth-service';
+import { Router } from 'express';
 
 @Component({
   selector: 'login-component',
@@ -11,7 +12,7 @@ import { AuthService } from '../../services/auth-service';
 export class LoginComponent {
   private authService: AuthService;
 
-  constructor(authService: AuthService) {
+  constructor(authService: AuthService, private router: Router) {
     this.authService = authService;
   }
 

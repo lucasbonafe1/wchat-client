@@ -1,6 +1,7 @@
  <form class="login-card" (ngSubmit)="onSubmit(usernameInput.value, passwordInput.value)">
+    <h1 class="component-title">Login</h1>
     <label class="card-title" for="email">Email</label>
-    <input class="input-label" #usernameInput type="text" maxlength="12" placeholder="Email de acesso" autocomplete="off" required>
+    <input class="input-label" #usernameInput type="text" placeholder="Email de acesso" autocomplete="off" required>
 
     <label class="card-title" for="password">Senha</label>
     <input class="input-label" #passwordInput type="text" maxlength="12" placeholder="Senha de acesso" autocomplete="off" required>
