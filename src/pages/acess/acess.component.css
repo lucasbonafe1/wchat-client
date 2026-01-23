@@ -8,12 +8,11 @@
 	padding: 2rem;
 }
 
-.component-title{
-	color: white;
-	font-size: 2rem;
-	margin-bottom: 1rem;
-	font-weight: 700;
-	text-align: center;
+.login-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .question-text{
@@ -28,10 +27,9 @@
 	font-weight: 600;
 	cursor: pointer;
 	transition: color 0.3s ease;
-	text-decoration: underline;
 }
 
 .span-link:hover{
 	color: #6bb4ff;
+	text-decoration: underline;
 }
-

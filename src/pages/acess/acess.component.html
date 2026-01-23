@@ -1,13 +1,13 @@
 <div class="login-page">
-    <span *ngIf="isLogin; then thenBlock else elseBlock" (click)="toggleCondition()"></span>
-    <ng-template #thenBlock>
-        <h1 class="component-title">Login</h1>
-        <p class="question-text">Ainda não possui uma conta? <span (click)="toggleCondition()" class="span-link">Registre-se</span></p>
-        <login-component></login-component>
-    </ng-template>
-    <ng-template #elseBlock>
-        <h1 class="component-title">Registro</h1>
-        <p class="question-text">Já possui uma conta? <span (click)="toggleCondition()" class="span-link">Faça login</span></p>
-        <register-component></register-component>
-    </ng-template>
+    <div class="login-container">
+        <span *ngIf="isLogin; then thenBlock else elseBlock" (click)="toggleCondition()"></span>
+        <ng-template #thenBlock>
+            <login-component></login-component>
+            <p class="question-text">Ainda não possui uma conta? <span (click)="toggleCondition()" class="span-link">Registre-se</span></p>
+        </ng-template>
+        <ng-template #elseBlock>
+            <register-component></register-component>
+            <p class="question-text">Já possui uma conta? <span (click)="toggleCondition()" class="span-link">Faça login</span></p>
+        </ng-template>
+    </div>
 </div>
