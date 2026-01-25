@@ -1,10 +1,16 @@
  <form class="login-card" (ngSubmit)="onSubmit(usernameInput.value, passwordInput.value)">
     <h1 class="component-title">Login</h1>
-    <label class="card-title" for="email">Email</label>
-    <input class="input-label" #usernameInput type="text" placeholder="Email de acesso" autocomplete="off" required>
+    <div class="input-group">
+        <div class="question-and-input">
+            <label class="card-title" for="email">Email</label>
+            <input class="input-label" #usernameInput type="text" placeholder="Email de acesso" autocomplete="off" required>
+        </div>
 
-    <label class="card-title" for="password">Senha</label>
-    <input class="input-label" #passwordInput type="text" maxlength="12" placeholder="Senha de acesso" autocomplete="off" required>
+        <div class="question-and-input">
+            <label class="card-title" for="password">Senha</label>
+            <input class="input-label" #passwordInput type="text" maxlength="12" placeholder="Senha de acesso" autocomplete="off" required>
+        </div>
+    </div>
 
     <button class="btn-submit" type="submit" aria-label="Entrar">Entrar</button>
 </form>
