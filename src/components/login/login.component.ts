@@ -12,7 +12,7 @@ import { Router } from 'express';
 export class LoginComponent {
   private authService: AuthService;
 
-  constructor(authService: AuthService, private router: Router) {
+  constructor(authService: AuthService) {
     this.authService = authService;
   }
 
